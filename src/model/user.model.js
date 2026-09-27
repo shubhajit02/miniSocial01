@@ -50,8 +50,8 @@ userSchema.pre("save", async function () {
 
 //kichu methods create korte pari, karon schema thke directly user er info ami this kore nite pari
 
-userSchema.methods.comparePassword = function (password) {
-    const isCorrectPass = bcrypt.compare(password, this.password);
+userSchema.methods.comparePassword = async function (password) {
+    const isCorrectPass = await bcrypt.compare(password, this.password);
     return isCorrectPass
 };
 
